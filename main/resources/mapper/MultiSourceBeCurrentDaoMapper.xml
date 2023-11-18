@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.geovis.receiver.dao.MultiSourceBeCurrentDao">
+
+    <sql id="insertMultiSourceBeCurrentKey">
+        id
+        ,
+file_name,
+file_size,
+file_type,
+ele_name,
+level,
+level_type,
+lon_start,
+lon_end,
+lat_start,
+lat_end,
+png_file_absolute_path,
+png_file_relative_path,
+src_file_absolute_path,
+number_x,
+number_y,
+data_time,
+insert_time,
+update_time,
+src_file_relative_path,
+src_file_name,
+src_file_size,
+            region_type,
+src_file_type
+    </sql>
+    <sql id="insertMultiSourceBeCurrentValue">
+        #{item.id}
+        ,
+        #{item.fileName},
+        #{item.fileSize},
+        #{item.fileType},
+        #{item.eleName},
+        #{item.level},
+        #{item.levelType},
+        #{item.lonStart},
+        #{item.lonEnd},
+        #{item.latStart},
+        #{item.latEnd},
+        #{item.fileAbsolutePath},
+        #{item.fileRelativePath},
+        #{item.srcFileAbsolutePath},
+        #{item.numberX},
+        #{item.numberY},
+        #{item.dataTime},
+        #{item.insertTime},
+        #{item.updateTime},
+        #{item.srcFileRelativePath},
+        #{item.srcFileName},
+        #{item.srcFileSize},
+        #{item.region},
+        #{item.srcFileType}
+    </sql>
+
+    <insert id="insertMultiSourceBeCurrent" parameterType="com.geovis.receiver.pojo.vo.MultiSourceBeCurrentBean">
+        <foreach collection="multiSourceBeCurrentBeanList" separator=";" open="" close="" item="item">
+            insert into ${item.tableName}
+            (<include refid="insertMultiSourceBeCurrentKey"></include>)
+            values
+            (<include refid="insertMultiSourceBeCurrentValue"></include>)
+        </foreach>
+    </insert>
+    <!--    <sql id="insertMultiSourceBeCurrentStatKey">-->
+    <!--id,-->
+    <!--file_name,-->
+    <!--file_size,-->
+    <!--file_type,-->
+    <!--ele_name,-->
+    <!--level,-->
+    <!--level_type,-->
+    <!--lon_start,-->
+    <!--lon_end,-->
+    <!--lat_start,-->
+    <!--lat_end,-->
+    <!--file_absolute_path,-->
+    <!--file_relative_path,-->
+    <!--src_file_absolute_path,-->
+    <!--number_x,-->
+    <!--number_y,-->
+    <!--insert_time,-->
+    <!--update_time,-->
+    <!--title,-->
+    <!--src_file_relative_path,-->
+    <!--src_file_name,-->
+    <!--src_file_size,-->
+    <!--src_file_type,-->
+    <!--"stat_type",-->
+    <!--"year","month","season","ten","hou"-->
+    <!--    </sql>-->
+    <!--    <sql id="insertMultiSourceBeCurrentStatValue">-->
+    <!--#{item.id},-->
+    <!--#{item.fileName},-->
+    <!--#{item.fileSize},-->
+    <!--#{item.fileType},-->
+    <!--#{item.eleName},-->
+    <!--#{item.level},-->
+    <!--#{item.levelType},-->
+    <!--#{item.lonStart},-->
+    <!--#{item.lonEnd},-->
+    <!--#{item.latStart},-->
+    <!--#{item.latEnd},-->
+    <!--#{item.fileAbsolutePath},-->
+    <!--#{item.fileRelativePath},-->
+    <!--#{item.srcFileAbsolutePath},-->
+    <!--#{item.numberX},-->
+    <!--#{item.numberY},-->
+    <!--#{item.insertTime},-->
+    <!--#{item.updateTime},-->
+    <!--#{item.title},-->
+    <!--#{item.srcFileRelativePath},-->
+    <!--#{item.srcFileName},-->
+    <!--#{item.srcFileSize},-->
+    <!--#{item.srcFileType},-->
+    <!--#{item.statType},-->
+    <!--#{item.year},-->
+    <!--#{item.month},-->
+    <!--#{item.season},-->
+    <!--#{item.ten},-->
+    <!--#{item.hou}-->
+    <!--    </sql>-->
+
+    <!--    <insert id="insertMultiSourceBeCurrentStat" parameterType="com.geovis.receiver.pojo.MultiSourceBeCurrentStatBean"-->
+    <!--            useGeneratedKeys="true" keyProperty="id" keyColumn="id">-->
+    <!--        <foreach collection="multiSourceBeCurrentBeanList" separator=";" open="" close="" item="item">-->
+    <!--            insert into ${item.tableName}-->
+    <!--            (<include refid="insertMultiSourceBeCurrentStatKey"></include>)-->
+    <!--            values-->
+    <!--            (<include refid="insertMultiSourceBeCurrentStatValue"></include>)-->
+    <!--        </foreach>-->
+    <!--    </insert>-->
+</mapper>

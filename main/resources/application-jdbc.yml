@@ -1,0 +1,45 @@
+#数据库配置
+spring:
+  datasource:
+    dynamic:
+      #配置数据库
+      datasource:
+        #公用数据查询
+        common_db:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://192.168.2.101:5432/postgres
+          username: postgres
+          password: 123456
+          type: com.alibaba.druid.pool.DruidDataSource
+          #HJ155 报文数据库
+        workflow_db:
+          driver-class-name: org.postgresql.Driver
+          url: jdbc:postgresql://192.168.2.101:5432/powerjob-daily
+          username: postgres
+          password: 123456
+          type: com.alibaba.druid.pool.DruidDataSource
+          ## tsfuse 态势融合项目库
+      #        tsfuse_db:
+      #          driver-class-name: org.postgresql.Driver
+      #          url: jdbc:postgresql://192.168.2.108:5432/tsfuse
+      #          username: postgres
+      #          password: 123456
+      #          type: com.alibaba.druid.pool.DruidDataSource
+      ##配置连接池
+      druid:
+        initialSize: 10
+        minIdle: 10
+        maxActive: 200
+        keepAlive: true
+        maxWait: 60000
+        minEvictableIdleTimeMills: 300000
+        testWhileIdle: true
+        testOnBorrow: true
+        testOnReturn: true
+        poolPreparedStatements: true
+        ## 配置拦截
+        filters: stat
+      ## 默认的主数据源 可以根据自己的需求调整
+      primary: common_db
+      ## 是否严格匹配数据库 默认为false,true为未匹配到数据库是抛出异常 false为使用默认数据库
+      strict: true

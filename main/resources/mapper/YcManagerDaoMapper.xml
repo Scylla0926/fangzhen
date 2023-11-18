@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.geovis.receiver.dao.YcCoraDao">
+    <!--跃层数据-->
+    <insert id="insertYcForcastProduct" parameterType="com.geovis.receiver.pojo.vo.YcCoraVo">
+        insert into "${tableName}" (id, png_file_name, png_file_size, src_file_name, src_file_size, src_file_type, png_file_absolute_path,
+                                  png_file_relative_path, src_file_absolute_path, ele_name, method, region_type, insert_time,update_time,
+                                  number_x,number_y,"level",timer,forecast_time,"data_time")
+        values (#{id}, #{pngFileName}, #{pngFileSize}, #{srcFileName}, #{srcFileSize}, #{srcFileType}, #{pngFileAbsolutePath},
+                #{pngFileRelativePath}, #{srcFileAbsolutePath}, #{eleName}, #{dgMethod}, #{regionType}, #{insertTime},#{updateTime},
+                #{numberX}, #{numberY}, #{level}, #{timer}, #{forecastTime}, #{dataTime})
+    </insert>
+    <insert id="insertYcObsProduct" parameterType="com.geovis.receiver.pojo.vo.YcCoraVo">
+        insert into "${tableName}" (id, png_file_name, png_file_size, src_file_name, src_file_size, src_file_type, png_file_absolute_path,
+                                  png_file_relative_path, src_file_absolute_path, ele_name, method, region_type, insert_time,update_time,
+                                  number_x,number_y,"level","data_time")
+        values (#{id}, #{pngFileName}, #{pngFileSize}, #{srcFileName}, #{srcFileSize}, #{srcFileType}, #{pngFileAbsolutePath},
+                #{pngFileRelativePath}, #{srcFileAbsolutePath}, #{eleName}, #{dgMethod}, #{regionType}, #{insertTime},#{updateTime},
+                #{numberX}, #{numberY}, #{level}, #{dataTime})
+    </insert>
+</mapper>

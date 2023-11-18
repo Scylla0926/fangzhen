@@ -1,0 +1,7 @@
+threadpool:
+  message:
+    threadName: ThreadPool-message- #线程前缀名
+    corePoolSize: 10  #核心线程数
+    maxPoolSize: 50   #最大线程数
+    queueCapacity: 1000   #允许的线程空闲时间
+    keepAliveSeconds: 60  #允许线程空闲时间

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.geovis.receiver.dao.MonManagerDao">
+
+    <insert id="insetMonDb" parameterType="com.geovis.receiver.pojo.bean.MonCurrencyBean">
+        insert into "${tableName}" (satelliteid, sensorid, shootstarttime, filepath, dataname, lefttoplon, lefttoplat,
+                                  rightbuttonlon, rightbuttonlat, productid, insertdate, filesize, srcpath)
+        values (#{satelliteid}, #{sensorid}, #{shootstarttime}, #{filepath}, #{dataname}, #{lefttoplon}, #{lefttoplat},
+                #{rightbuttonlon}, #{rightbuttonlat}, #{productid}, #{insertdate}, #{filesize}, #{srcpath})
+    </insert>
+
+</mapper>

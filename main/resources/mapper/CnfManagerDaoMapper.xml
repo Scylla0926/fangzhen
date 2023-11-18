@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.geovis.receiver.dao.CnfManagerDao">
+
+    <select id="queryCnf" resultType="com.geovis.receiver.pojo.model.Note">
+           select cnf_ip as ip,cnf_key as "cnfKey",cnf_value as "cnfValue" from ldb_sup_sys_cnf
+    </select>
+    <select id="queryThemocLine" resultType="com.geovis.receiver.pojo.model.ThermocLine">
+        select * from ldb_dat_sys_config
+    </select>
+
+    <!--  查询数据库中的配置信息  -->
+    <select id="queryConfig" resultType="com.geovis.receiver.pojo.model.TableConfigElement">
+        select ele_name,ele_type,cycle_type,cycle_num,resource,end_with,ele_class,is_cache,c_name,ip,port,backup_file,resource_dir,cache_dir,storage_dir,regex,total_num from ldb_dic_receiver_config
+    </select>
+
+</mapper>

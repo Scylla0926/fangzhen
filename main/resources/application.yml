@@ -1,0 +1,55 @@
+# 应用名称
+spring:
+  application:
+    name: Receiver-Producer
+  profiles:
+    include: jdbc,thread,redis,fileEleName,tableName
+  resources:
+    static-locations: file:${custom.images}
+# 应用服务 WEB 访问端口
+server:
+  port: 8010
+
+# 日志文件配置信息
+logging:
+  level:
+    org:
+      mybatis:
+        #        SQL: INFO
+        type: INFO
+    com:
+      geovis:
+        receiver: INFO
+  file:
+    #    name: /receiver/log/vi.log
+    name: D:/log/vi.log
+
+# mybatis 配置信息
+mybatis-plus:
+  # 配置mapper.xml文件路径
+  mapper-locations: classpath:/mapper/*.xml
+
+# eureka配置
+eureka:
+  client:
+    serviceUrl: #注册中心的地址
+      defaultZone: http://192.168.2.101:1000/eureka/
+  instance:
+    instance-id: Receiver_8010
+    prefer-ip-address: true
+
+
+# 自定义配置信息
+custom:
+  hostIp: 192.168.2.127
+  images: /disk2/
+
+wrokflow:
+#workflow_ip=192.168.2.151
+#workflow_port=5000
+#workflow_app=create-workflow
+workflow_ip: 192.168.2.101
+workflow_port: 7777
+workflow_app: WorkflowQueue/add-Workflow
+
+
